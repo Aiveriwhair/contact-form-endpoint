@@ -25,6 +25,7 @@ if (!fs.existsSync(logsDir)) {
 }
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
+const BASE_URL = process.env.BASE_URL || '/api/contact';
 
 app.set('trust proxy', 2);
 
@@ -95,23 +96,26 @@ const emailService = new EmailService(emailConfig, mailSender, templateEngine);
 const contactController = new ContactController(emailService);
 
 // Contact form routes (public)
-app.use('/api/contact', createContactRouter(contactController));
+app.use(BASE_URL, createContactRouter(contactController));
 
 // Dev-only template preview
 if (process.env.NODE_ENV !== 'production') {
   // Root endpoint
-  app.get('/', (req: Request, res: Response) => {
+  app.get(BASE_URL, (req: Request, res: Response) => {
     res.json({
       success: true,
       message: 'Contact API is running',
       endpoints: {
-        submit: 'POST /api/contact/submit',
-        health: 'GET /api/contact/health',
-        templates: 'GET /dev/templates',
+        submit: `POST ${BASE_URL}/submit`,
+        health: `GET ${BASE_URL}/health`,
+        templates: `GET ${BASE_URL}/templates`,
       },
     });
   });
-  app.use('/dev/templates', createDevTemplateRouter(emailService, emailConfig, templateEngine));
+  app.use(
+    `${BASE_URL}/templates`,
+    createDevTemplateRouter(emailService, emailConfig, templateEngine)
+  );
 }
 
 app.use((req: Request, res: Response) => {
