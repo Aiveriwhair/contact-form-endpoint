@@ -63,23 +63,32 @@ export function createDevTemplateRouter(
       .join('\n');
 
     res.send(
-      '<!DOCTYPE html><html><head><meta charset="utf-8" /><title>Template Preview</title>' +
+      '<!DOCTYPE html><html><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Template Preview</title>' +
         '<style>' +
-        'body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #2d3436; background: #f0f4f0; }' +
-        'h1 { color: #2d6a4f; }' +
-        '.card { background: white; border-radius: 8px; padding: 16px 20px; margin: 10px 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }' +
-        '.card a { color: #e76f51; text-decoration: none; font-weight: 600; }' +
+        '*, *::before, *::after { box-sizing: border-box; }' +
+        'body { font-family: system-ui, sans-serif; margin: 0; padding: 24px 16px; color: #2d3436; background: #f0f4f0; }' +
+        '.container { max-width: 960px; margin: 0 auto; }' +
+        'h1 { color: #2d6a4f; font-size: clamp(1.4rem, 4vw, 2rem); margin: 0 0 4px; }' +
+        '.badge { background: #52b788; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; vertical-align: middle; }' +
+        '.info { color: #888; font-size: 13px; margin: 0 0 20px; }' +
+        '.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }' +
+        '.card { background: white; border-radius: 10px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 4px rgba(0,0,0,0.07); transition: box-shadow .15s, transform .15s; }' +
+        '.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); transform: translateY(-1px); }' +
+        '.card span { font-size: 14px; font-weight: 500; word-break: break-all; margin-right: 12px; }' +
+        '.card a { color: #e76f51; text-decoration: none; font-weight: 600; white-space: nowrap; font-size: 14px; }' +
         '.card a:hover { text-decoration: underline; }' +
-        '.badge { background: #52b788; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; }' +
-        '.info { color: #888; font-size: 13px; margin-bottom: 20px; }' +
+        '@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } .card { padding: 14px 16px; } }' +
         '</style></head><body>' +
+        '<div class="container">' +
         '<h1>Template Preview</h1>' +
         '<p class="info">Engine: <span class="badge">' +
         templateEngine.name +
-        '</span> — ' +
+        '</span> &mdash; ' +
         templates.length +
         ' templates loaded</p>' +
+        '<div class="grid">' +
         cards +
+        '</div></div>' +
         '</body></html>'
     );
   });
