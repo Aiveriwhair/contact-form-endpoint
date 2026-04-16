@@ -72,6 +72,7 @@ const emailConfig: EmailConfig = {
   to: process.env.EMAIL_TO ? process.env.EMAIL_TO.split(',').map((email) => email.trim()) : [],
   sendConfirmation: process.env.SEND_CONFIRMATION_EMAIL === 'true',
   companyName: process.env.COMPANY_NAME || '',
+  signatureName: process.env.SIGNATURE_NAME || process.env.COMPANY_NAME || '',
   defaultLanguage: process.env.DEFAULT_LANGUAGE || 'fr',
   internalEmailLanguage: process.env.INTERNAL_EMAIL_LANGUAGE || 'fr',
   templatesDir: process.env.TEMPLATES_DIR || undefined,

@@ -16,6 +16,7 @@ function buildSampleData(name: string, emailConfig: EmailConfig): Record<string,
         'Hello, I would like to book a cycling lesson for my 8 year old daughter. Are you available this weekend?',
       originalDate: new Date().toLocaleString('fr-FR'),
       companyName: emailConfig.companyName || 'My Company',
+      signatureName: emailConfig.signatureName || emailConfig.companyName || 'My Company',
       companyEmail: emailConfig.from || 'contact@example.com',
       year: new Date().getFullYear(),
     };
@@ -29,6 +30,7 @@ function buildSampleData(name: string, emailConfig: EmailConfig): Record<string,
       'Hello, I would like to book a cycling lesson for my 8 year old daughter in the Bois de Vincennes. Are you available next Saturday morning?',
     timestamp: new Date().toLocaleString('fr-FR'),
     companyName: emailConfig.companyName || 'My Company',
+    signatureName: emailConfig.signatureName || emailConfig.companyName || 'My Company',
     year: new Date().getFullYear(),
     context: isConfirmation
       ? undefined

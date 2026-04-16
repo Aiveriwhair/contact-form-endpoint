@@ -205,7 +205,7 @@ class EmailService {
 
   private buildConfirmationText(contactMessage: ContactMessage, locale: string): string {
     const t = this.getTextTranslation('confirmation', locale);
-    const companyName = this.config.companyName || t.closing;
+    const signatureName = this.config.signatureName || this.config.companyName || t.closing;
 
     return [
       this.interpolate(t.greeting || '', { name: contactMessage.name }),
@@ -222,7 +222,7 @@ class EmailService {
       t.urgent,
       '',
       `${t.closing}`,
-      companyName,
+      signatureName,
       '',
       '---',
       t.autoEmail,
@@ -239,7 +239,7 @@ class EmailService {
     locale: string
   ): string {
     const t = this.getTextTranslation('reply', locale);
-    const companyName = this.config.companyName || '';
+    const signatureName = this.config.signatureName || this.config.companyName || '';
 
     const lines = [
       this.interpolate(t.greeting || '', { contactName: options.contactName }),
@@ -258,7 +258,7 @@ class EmailService {
       );
     }
 
-    lines.push('', '---', companyName, this.config.from);
+    lines.push('', '---', signatureName, this.config.from);
 
     return lines.join('\n');
   }
@@ -324,6 +324,7 @@ class EmailService {
       message: contactMessage.message,
       timestamp: new Date().toLocaleString(effectiveLocale),
       companyName: this.config.companyName || '',
+      signatureName: this.config.signatureName || this.config.companyName || '',
       year: new Date().getFullYear(),
     };
 
@@ -370,6 +371,7 @@ class EmailService {
       originalMessage,
       originalDate: originalDate || new Date().toLocaleString(effectiveLocale),
       companyName: this.config.companyName || '',
+      signatureName: this.config.signatureName || this.config.companyName || '',
       companyEmail: this.config.from,
       year: new Date().getFullYear(),
     };

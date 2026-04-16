@@ -17,6 +17,7 @@ export interface EmailConfig {
   to: string | string[];
   sendConfirmation: boolean;
   companyName?: string;
+  signatureName?: string;
   defaultLanguage: string;
   internalEmailLanguage: string;
   templatesDir?: string;
