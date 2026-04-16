@@ -114,7 +114,7 @@ if (process.env.NODE_ENV !== 'production') {
   });
   app.use(
     `${BASE_URL}/templates`,
-    createDevTemplateRouter(emailService, emailConfig, templateEngine)
+    createDevTemplateRouter(emailService, emailConfig, templateEngine, BASE_URL)
   );
 }
 

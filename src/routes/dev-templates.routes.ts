@@ -39,7 +39,8 @@ function buildSampleData(name: string, emailConfig: EmailConfig): Record<string,
 export function createDevTemplateRouter(
   emailService: EmailService,
   emailConfig: EmailConfig,
-  templateEngine: ITemplateEngine
+  templateEngine: ITemplateEngine,
+  baseUrl: string
 ): Router {
   const router = Router();
 
@@ -51,7 +52,9 @@ export function createDevTemplateRouter(
         (t) =>
           '<div class="card"><span>' +
           t +
-          '</span><a href="/dev/templates/' +
+          '</span><a href="' +
+          baseUrl +
+          '/templates/' +
           t +
           '">Preview →</a></div>'
       )
@@ -112,7 +115,11 @@ export function createDevTemplateRouter(
         '<span>Template: <span class="name">' +
         name +
         '</span></span>' +
-        '<span><a href="/dev/templates">← All templates</a> · <a href="/dev/templates/' +
+        '<span><a href="' +
+        baseUrl +
+        '/templates">← All templates</a> · <a href="' +
+        baseUrl +
+        '/templates/' +
         name +
         '?raw=true">Raw HTML</a></span>' +
         '</div>' +
