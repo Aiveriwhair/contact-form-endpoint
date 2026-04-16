@@ -1,0 +1,98 @@
+{
+  "subjects": {
+    "default": {
+      "contact": {
+        "fr": "Nouveau message de contact : {{subject}}",
+        "en": "New contact message: {{subject}}"
+      },
+      "confirmation": {
+        "fr": "Confirmation de réception : {{subject}}",
+        "en": "Receipt confirmation: {{subject}}"
+      }
+    },
+    "detailed": {
+      "contact": {
+        "fr": "Message détaillé : {{subject}}",
+        "en": "Detailed message: {{subject}}"
+      },
+      "confirmation": {
+        "fr": "Accusé de réception détaillé : {{subject}}",
+        "en": "Detailed receipt acknowledgment: {{subject}}"
+      }
+    },
+    "minimal": {
+      "contact": {
+        "fr": "Contact : {{subject}}",
+        "en": "Contact: {{subject}}"
+      },
+      "confirmation": {
+        "fr": "Reçu : {{subject}}",
+        "en": "Received: {{subject}}"
+      }
+    },
+    "reply": {
+      "reply": {
+        "fr": "Re: {{subject}}",
+        "en": "Re: {{subject}}"
+      }
+    }
+  },
+  "text": {
+    "contact": {
+      "fr": {
+        "header": "Nouveau message de contact",
+        "name": "Nom",
+        "email": "Email",
+        "subject": "Sujet",
+        "message": "Message",
+        "additionalInfo": "Informations supplémentaires",
+        "receivedAt": "Reçu le"
+      },
+      "en": {
+        "header": "New contact message",
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "additionalInfo": "Additional information",
+        "receivedAt": "Received at"
+      }
+    },
+    "confirmation": {
+      "fr": {
+        "greeting": "Bonjour {{name}},",
+        "body": "Nous avons bien reçu votre message et nous vous remercions de nous avoir contactés.\nNotre équipe va l'examiner et vous répondra dans les plus brefs délais.",
+        "summary": "Récapitulatif de votre message :",
+        "subject": "Sujet",
+        "date": "Date",
+        "message": "Message",
+        "urgent": "Si vous avez d'autres questions ou si votre demande est urgente, n'hésitez pas à nous recontacter.",
+        "closing": "Cordialement,",
+        "autoEmail": "Cet email a été envoyé automatiquement, merci de ne pas y répondre."
+      },
+      "en": {
+        "greeting": "Hello {{name}},",
+        "body": "We have received your message and thank you for contacting us.\nOur team will review it and get back to you as soon as possible.",
+        "summary": "Summary of your message:",
+        "subject": "Subject",
+        "date": "Date",
+        "message": "Message",
+        "urgent": "If you have any other questions or if your request is urgent, please don't hesitate to contact us again.",
+        "closing": "Best regards,",
+        "autoEmail": "This email was sent automatically, please do not reply."
+      }
+    },
+    "reply": {
+      "fr": {
+        "greeting": "Bonjour {{contactName}},",
+        "originalMessageHeader": "Votre message du {{originalDate}} :",
+        "separator": "---"
+      },
+      "en": {
+        "greeting": "Hello {{contactName}},",
+        "originalMessageHeader": "Your message from {{originalDate}}:",
+        "separator": "---"
+      }
+    }
+  }
+}

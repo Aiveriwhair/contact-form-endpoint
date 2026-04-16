@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detailed Message</title>
+    <style>
+      body { font-family: Arial, sans-serif; line-height: 1.6; color: #2d3436; max-width: 600px; margin: 0 auto; padding: 20px; background: #f0f4f0; }
+      .container { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(45, 106, 79, 0.1); }
+      .header-bar { height: 6px; background: linear-gradient(90deg, #2d6a4f, #52b788, #f4a261); }
+      .body { padding: 28px; }
+      h2 { color: #1b4332; border-bottom: 2px solid #52b788; padding-bottom: 10px; margin-top: 0; font-size: 20px; }
+      .info-grid { display: grid; grid-template-columns: 100px 1fr; gap: 12px; margin: 20px 0; }
+      .label { font-weight: 700; color: #2d6a4f; font-size: 13px; }
+      .value { color: #2d3436; }
+      .value a { color: #e76f51; text-decoration: none; }
+      .message { background: #f8faf8; padding: 16px; border-left: 4px solid #52b788; margin: 20px 0; white-space: pre-wrap; border-radius: 4px; }
+      .context-section { margin-top: 24px; padding-top: 18px; border-top: 2px dashed #d8e8d8; }
+      .context-section h3 { color: #e76f51; font-size: 15px; margin-bottom: 10px; }
+      .context-table { width: 100%; border-collapse: collapse; }
+      .context-table td { padding: 8px 10px; border-bottom: 1px solid #e8f0e8; font-size: 14px; }
+      .context-table td:first-child { font-weight: 700; color: #2d6a4f; width: 30%; }
+      .timestamp { color: #95a5a6; font-size: 12px; text-align: right; margin-top: 18px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-bar"></div>
+      <div class="body">
+        <h2>🚲 New Contact Message</h2>
+        <div class="info-grid">
+          <div class="label">From:</div>
+          <div class="value">{{name}} (<a href="mailto:{{email}}">{{email}}</a>)</div>
+          <div class="label">Subject:</div>
+          <div class="value">{{subject}}</div>
+        </div>
+        <div class="message">{{message}}</div>
+        {{#if context}}
+        <div class="context-section">
+          <h3>Detailed Information</h3>
+          <table class="context-table">
+            {{#each context}}
+            <tr>
+              <td>{{@key}}</td>
+              <td>{{this}}</td>
+            </tr>
+            {{/each}}
+          </table>
+        </div>
+        {{/if}}
+        <div class="timestamp">Received on {{timestamp}}</div>
+      </div>
+    </div>
+  </body>
+</html>

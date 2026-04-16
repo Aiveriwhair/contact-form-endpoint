@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmation</title>
+    <style>
+      body { font-family: 'Courier New', monospace; line-height: 1.5; color: #2d3436; max-width: 560px; margin: 0 auto; padding: 16px; background: #f0f4f0; }
+      .minimal { background: #fff; padding: 24px; border-radius: 8px; border-top: 4px solid #52b788; }
+      .title { color: #2d6a4f; font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+      .greeting { font-size: 15px; margin-bottom: 12px; }
+      .body-text { color: #555; font-size: 14px; margin-bottom: 16px; }
+      .line { margin-bottom: 6px; font-size: 14px; }
+      .line strong { color: #2d6a4f; }
+      .msg { background: #f8faf8; padding: 14px; margin: 12px 0; white-space: pre-wrap; border-left: 3px solid #52b788; font-size: 13px; }
+      .info { background: #fff8f0; padding: 12px; margin: 16px 0; border-left: 3px solid #f4a261; font-size: 13px; color: #6b4226; }
+      .sig { margin-top: 18px; color: #555; font-size: 14px; }
+      .sig strong { color: #2d6a4f; }
+      .footer { color: #95a5a6; font-size: 11px; margin-top: 18px; padding-top: 12px; border-top: 1px dashed #d8e8d8; }
+    </style>
+  </head>
+  <body>
+    <div class="minimal">
+      <div class="title">✓ Message Received</div>
+      <div class="greeting">Hello <strong>{{name}}</strong>,</div>
+      <p class="body-text">Your message has been received. We'll get back to you shortly.</p>
+      <div class="line"><strong>Subject:</strong> {{subject}}</div>
+      <div class="line"><strong>Date:</strong> {{timestamp}}</div>
+      <div class="msg">{{message}}</div>
+      <div class="info">For any urgent matter, don't hesitate to contact us again.</div>
+      <div class="sig">Best regards,<br /><strong>{{companyName}}</strong></div>
+      <div class="footer">
+        <p>Automated email — please do not reply.</p>
+        <p>&copy; {{year}} {{companyName}}</p>
+      </div>
+    </div>
+  </body>
+</html>
