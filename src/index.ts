@@ -76,6 +76,7 @@ const emailConfig: EmailConfig = {
   defaultLanguage: process.env.DEFAULT_LANGUAGE || 'fr',
   internalEmailLanguage: process.env.INTERNAL_EMAIL_LANGUAGE || 'fr',
   templatesDir: process.env.TEMPLATES_DIR || undefined,
+  defaultTemplate: process.env.DEFAULT_TEMPLATE || undefined,
 };
 
 const mailSender = new NodemailerMailSender(transportConfig);

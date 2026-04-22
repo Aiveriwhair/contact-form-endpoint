@@ -264,9 +264,10 @@ class EmailService {
   }
 
   async sendContactEmail(contactMessage: ContactMessage): Promise<void> {
-    const templateName = contactMessage.template || 'default';
+    const defaultTemplate = this.config.defaultTemplate || 'default';
+    const templateName = contactMessage.template || defaultTemplate;
     const internalLang = this.config.internalEmailLanguage;
-    const template = this.getTemplate(templateName, internalLang, 'default');
+    const template = this.getTemplate(templateName, internalLang, defaultTemplate);
 
     if (!template) {
       throw new Error('Template not found');
@@ -302,7 +303,8 @@ class EmailService {
   }
 
   async sendConfirmationEmail(contactMessage: ContactMessage): Promise<void> {
-    const templateName = contactMessage.template || 'default';
+    const defaultTemplate = this.config.defaultTemplate || 'default';
+    const templateName = contactMessage.template || defaultTemplate;
     const locale = contactMessage.locale;
     const effectiveLocale = this.resolveLocale(locale);
     const confirmationTemplateName = `${templateName}-confirmation`;
@@ -310,7 +312,7 @@ class EmailService {
     const confirmationTemplate = this.getTemplate(
       confirmationTemplateName,
       locale,
-      'default-confirmation'
+      `${defaultTemplate}-confirmation`
     );
 
     if (!confirmationTemplate) {

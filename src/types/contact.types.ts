@@ -21,4 +21,5 @@ export interface EmailConfig {
   defaultLanguage: string;
   internalEmailLanguage: string;
   templatesDir?: string;
+  defaultTemplate?: string;
 }
