@@ -258,7 +258,7 @@ class EmailService {
       );
     }
 
-    lines.push('', '---', signatureName, this.config.from);
+    lines.push('', '---', signatureName, this.config.fromAddress);
 
     return lines.join('\n');
   }
@@ -374,7 +374,7 @@ class EmailService {
       originalDate: originalDate || new Date().toLocaleString(effectiveLocale),
       companyName: this.config.companyName || '',
       signatureName: this.config.signatureName || this.config.companyName || '',
-      companyEmail: this.config.from,
+      companyEmail: this.config.fromAddress,
       year: new Date().getFullYear(),
     };
 

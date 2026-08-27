@@ -17,7 +17,7 @@ function buildSampleData(name: string, emailConfig: EmailConfig): Record<string,
       originalDate: new Date().toLocaleString('fr-FR'),
       companyName: emailConfig.companyName || 'My Company',
       signatureName: emailConfig.signatureName || emailConfig.companyName || 'My Company',
-      companyEmail: emailConfig.from || 'contact@example.com',
+      companyEmail: emailConfig.fromAddress || 'contact@example.com',
       year: new Date().getFullYear(),
     };
   }

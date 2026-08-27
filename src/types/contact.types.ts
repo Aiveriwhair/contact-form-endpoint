@@ -14,6 +14,7 @@ export interface ContactMessage extends ContactRequestBody {
 
 export interface EmailConfig {
   from: string;
+  fromAddress: string;
   to: string | string[];
   sendConfirmation: boolean;
   companyName?: string;

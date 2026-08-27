@@ -67,8 +67,14 @@ const transportConfig: MailTransportConfig = {
   password: process.env.EMAIL_PASSWORD || '',
 };
 
+const emailFromAddress = process.env.EMAIL_FROM || '';
+const emailFromName = process.env.COMPANY_NAME;
+
 const emailConfig: EmailConfig = {
-  from: process.env.EMAIL_FROM || '',
+  from: emailFromName
+    ? `"${emailFromName.replace(/"/g, '')}" <${emailFromAddress}>`
+    : emailFromAddress,
+  fromAddress: emailFromAddress,
   to: process.env.EMAIL_TO ? process.env.EMAIL_TO.split(',').map((email) => email.trim()) : [],
   sendConfirmation: process.env.SEND_CONFIRMATION_EMAIL === 'true',
   companyName: process.env.COMPANY_NAME || '',
